@@ -61,12 +61,12 @@
                 var button = $(e.target);
                 $.post("/api/attendances", { Id: button.attr("data-course-id") })
                     .done(function () {
-                        arlert("Đăng ký khóa học thành công!");
+                        alert("Đăng ký khóa học thành công!");
                         button.removeClass("btn-default");
                         button.addClass("btn-info");
                         button.text("Going");
                     }).fail(function () {
-                        arlert("Something fail");
+                        alert("Something fail");
                     });
             });
             $(".js-tongle-follow").click(function (e) {
@@ -75,8 +75,9 @@
                     .done(function () {
                         button.addClass("btn-success");
                         button.text("Following");
+                        location.reload();
                     }).fail(function () {
-                        arlert("Something fail");
+                        alert("Something fail");
                     });
             });
         });

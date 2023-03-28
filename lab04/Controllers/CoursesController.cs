@@ -105,13 +105,15 @@ namespace lab04.Controllers
 
         public ActionResult Delete(int id)
         {
-            var userID=User.Identity.GetUserId();
-            BigSchoolContext context= new BigSchoolContext();
+            var userID = User.Identity.GetUserId();
+            BigSchoolContext context = new BigSchoolContext();
             var findCourse = context.Courses.FirstOrDefault(p => p.Id == id);
             findCourse.IsCanceled = true;
             context.SaveChanges();
             return RedirectToAction("Mine");
         }
+      
+
 
         public ActionResult Following()
         {
