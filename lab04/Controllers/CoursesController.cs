@@ -97,11 +97,16 @@ namespace lab04.Controllers
             BigSchoolContext context= new BigSchoolContext();
             var loginUser=User.Identity.GetUserId();
             var course=context.Courses.FirstOrDefault(c=>c.LecturerId==loginUser && c.Id==id);
-            if(course==null)
+            if (course == null)
+            {
                 return HttpNotFound("Không tìm thấy khóa học");
+            }
             course.listCategory=context.Categories.ToList();
+            context.SaveChanges();
             return View("Create", course);
         }
+
+
 
         public ActionResult Delete(int id)
         {

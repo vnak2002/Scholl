@@ -36,7 +36,7 @@ namespace lab04.Controllers
                     i.isShowFollow = true;
             } 
             return View(upcommingingCourse);
-            //return View();
+            
         }
 
         public ActionResult About()
